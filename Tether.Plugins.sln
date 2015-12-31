@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tether.ClassicASP", "Tether.ClassicASP\Tether.ClassicASP.csproj", "{450CEC63-784A-4A82-B7A1-9EB8FDD1CC67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tether.HTTPServiceRequestQueues", "Tether.HTTPServiceRequestQueues\Tether.HTTPServiceRequestQueues.csproj", "{2AC0DD73-3C86-4597-885F-7F9419EF6893}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tether.IISOldRequests", "Tether.IISOldRequests\Tether.IISOldRequests.csproj", "{FFDFE61A-2815-4ADC-B983-6ACC41D58B18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tether.MSMQMetrics", "Tether.MSMQMetrics\Tether.MSMQMetrics.csproj", "{5FCB9186-CB57-454D-B638-5EDDDFBBEE99}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{450CEC63-784A-4A82-B7A1-9EB8FDD1CC67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{450CEC63-784A-4A82-B7A1-9EB8FDD1CC67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{450CEC63-784A-4A82-B7A1-9EB8FDD1CC67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{450CEC63-784A-4A82-B7A1-9EB8FDD1CC67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AC0DD73-3C86-4597-885F-7F9419EF6893}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AC0DD73-3C86-4597-885F-7F9419EF6893}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AC0DD73-3C86-4597-885F-7F9419EF6893}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AC0DD73-3C86-4597-885F-7F9419EF6893}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFDFE61A-2815-4ADC-B983-6ACC41D58B18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFDFE61A-2815-4ADC-B983-6ACC41D58B18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFDFE61A-2815-4ADC-B983-6ACC41D58B18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFDFE61A-2815-4ADC-B983-6ACC41D58B18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FCB9186-CB57-454D-B638-5EDDDFBBEE99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FCB9186-CB57-454D-B638-5EDDDFBBEE99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FCB9186-CB57-454D-B638-5EDDDFBBEE99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FCB9186-CB57-454D-B638-5EDDDFBBEE99}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

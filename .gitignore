@@ -197,3 +197,7 @@ FakesAssemblies/
 
 # Tab Studio
 *.tss
+
+#Tether specifics, need un-ignoring.
+!lib/Tether.Plugins.pdb
+!lib/Tether.Plugins.dll

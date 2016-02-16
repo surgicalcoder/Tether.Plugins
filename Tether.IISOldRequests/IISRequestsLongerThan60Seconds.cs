@@ -1,14 +1,11 @@
-﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Web.Administration;
 using Tether.Plugins;
 
 namespace Tether.IISOldRequests
 {
-    public class IISRequestsLongerThanTenSeconds : ICheck
+    public class IISRequestsLongerThan60Seconds : ICheck
     {
         public object DoCheck()
         {
@@ -17,7 +14,7 @@ namespace Tether.IISOldRequests
             {
                 foreach (WorkerProcess w3wp in manager.WorkerProcesses)
                 {
-                    var requestCollection = w3wp.GetRequests(10000);
+                    var requestCollection = w3wp.GetRequests(60000);
 
                     if (requestCollection.Any())
                     {
@@ -36,6 +33,6 @@ namespace Tether.IISOldRequests
 
         }
 
-        public string Key => "IIS-Requests-Longer-Than-TenSecs";
+        public string Key => "IIS Requests > 60 Sec";
     }
 }

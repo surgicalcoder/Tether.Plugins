@@ -8,6 +8,7 @@ These include:
 * HTTP Service Request queues
 * IIS Requests that are older than 10 seconds
 * MSMQ queue data
+* SQL Server Performance Data
 
 Simply download (either pre-built or build yourself), place into the **plugins** directory, and restart agent.
  

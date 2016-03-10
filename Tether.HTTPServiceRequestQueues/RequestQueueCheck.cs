@@ -22,10 +22,27 @@ namespace Tether.HTTPServiceRequestQueues
             {
                 var counters = category.GetCounters(instance);
                 values.Add(instance, counters.FirstOrDefault(e => e.CounterName == "CurrentQueueSize").NextValue());
+                DisposeAll(counters);
             }
 
 
+
             return values;
+        }
+
+        private void DisposeAll(PerformanceCounter[] counters)
+        {
+            foreach (var counter in counters)
+            {
+                try
+                {
+                    counter.Dispose();
+                }
+                catch (Exception)
+                {
+                    // Yeah, I know. Yeah, I really do know.
+                }
+            }
         }
 
         public string Key => "HTTP-Service-Request-Queues";

@@ -17,11 +17,32 @@ namespace Tether.ClassicASP
             PerformanceCounterCategory category = new PerformanceCounterCategory("Active Server Pages");
             IDictionary<string, object> values = new Dictionary<string, object>();
 
-            foreach (PerformanceCounter counter in category.GetCounters())
+            var counters = category.GetCounters();
+
+            foreach (PerformanceCounter counter in counters)
             {
                 values.Add(counter.CounterName, counter.NextValue());
+                counter.Dispose();
             }
+
+            DisposeAll(counters);
+
             return values;
+        }
+
+        private void DisposeAll(PerformanceCounter[] counters)
+        {
+            foreach (var counter in counters)
+            {
+                try
+                {
+                    counter.Dispose();
+                }
+                catch (System.Exception)
+                {
+                    // Yeah, I know. Yeah, I really do know.
+                }
+            }
         }
     }
 }

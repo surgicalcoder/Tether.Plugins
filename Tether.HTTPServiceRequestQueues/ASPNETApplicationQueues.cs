@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Tether.Plugins;
@@ -19,11 +20,27 @@ namespace Tether.HTTPServiceRequestQueues
             {
                 var counters = category.GetCounters(instance);
                 values.Add(instance, counters.FirstOrDefault(e => e.CounterName == "Requests In Application Queue").NextValue());
+
+                DisposeAll(counters);
             }
 
 
             return values;
+        }
 
+        private void DisposeAll(PerformanceCounter[] counters)
+        {
+            foreach (var counter in counters)
+            {
+                try
+                {
+                    counter.Dispose();
+                }
+                catch (System.Exception)
+                {
+                    // Yeah, I know. Yeah, I really do know.
+                }
+            }
         }
 
         public string Key => "ASPNET-Applications-Queues";

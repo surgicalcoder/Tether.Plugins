@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.10
+VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tether.ClassicASP", "Tether.ClassicASP\Tether.ClassicASP.csproj", "{450CEC63-784A-4A82-B7A1-9EB8FDD1CC67}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tether.MSSQLPerformance", "Tether.MSSQLPerformance\Tether.MSSQLPerformance.csproj", "{B36F8DED-852F-4138-8A07-208983EBE5EB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tether.SQLServer", "Tether.SQLServer\Tether.SQLServer.csproj", "{CE6CB58C-ABAB-42FB-A942-482AE4C72E87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tether.WindowsUpdates", "Tether.WindowsUpdates\Tether.WindowsUpdates.csproj", "{F883754A-C75C-42B3-92C6-C6EE45435749}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{CE6CB58C-ABAB-42FB-A942-482AE4C72E87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE6CB58C-ABAB-42FB-A942-482AE4C72E87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE6CB58C-ABAB-42FB-A942-482AE4C72E87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F883754A-C75C-42B3-92C6-C6EE45435749}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F883754A-C75C-42B3-92C6-C6EE45435749}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F883754A-C75C-42B3-92C6-C6EE45435749}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F883754A-C75C-42B3-92C6-C6EE45435749}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

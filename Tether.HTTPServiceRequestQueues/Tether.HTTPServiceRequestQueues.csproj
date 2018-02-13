@@ -45,9 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ASPNETApplicationQueues.cs" />
     <Compile Include="ASPNETGlobalQueues.cs" />
-    <Compile Include="RequestQueueCheck.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

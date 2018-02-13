@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2010
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tether.ClassicASP", "Tether.ClassicASP\Tether.ClassicASP.csproj", "{450CEC63-784A-4A82-B7A1-9EB8FDD1CC67}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tether.HTTPServiceRequestQueues", "Tether.HTTPServiceRequestQueues\Tether.HTTPServiceRequestQueues.csproj", "{2AC0DD73-3C86-4597-885F-7F9419EF6893}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tether.IISOldRequests", "Tether.IISOldRequests\Tether.IISOldRequests.csproj", "{FFDFE61A-2815-4ADC-B983-6ACC41D58B18}"
@@ -12,8 +10,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tether.MSMQMetrics", "Tether.MSMQMetrics\Tether.MSMQMetrics.csproj", "{5FCB9186-CB57-454D-B638-5EDDDFBBEE99}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tether.ASPNetRequests", "Tether.ASPNetRequests\Tether.ASPNetRequests.csproj", "{4301362D-90CB-4086-B36D-A8654CE21A79}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tether.MSSQLPerformance", "Tether.MSSQLPerformance\Tether.MSSQLPerformance.csproj", "{B36F8DED-852F-4138-8A07-208983EBE5EB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tether.SQLServer", "Tether.SQLServer\Tether.SQLServer.csproj", "{CE6CB58C-ABAB-42FB-A942-482AE4C72E87}"
 EndProject
@@ -25,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{450CEC63-784A-4A82-B7A1-9EB8FDD1CC67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{450CEC63-784A-4A82-B7A1-9EB8FDD1CC67}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{450CEC63-784A-4A82-B7A1-9EB8FDD1CC67}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{450CEC63-784A-4A82-B7A1-9EB8FDD1CC67}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2AC0DD73-3C86-4597-885F-7F9419EF6893}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2AC0DD73-3C86-4597-885F-7F9419EF6893}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AC0DD73-3C86-4597-885F-7F9419EF6893}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,10 +37,6 @@ Global
 		{4301362D-90CB-4086-B36D-A8654CE21A79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4301362D-90CB-4086-B36D-A8654CE21A79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4301362D-90CB-4086-B36D-A8654CE21A79}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B36F8DED-852F-4138-8A07-208983EBE5EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B36F8DED-852F-4138-8A07-208983EBE5EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B36F8DED-852F-4138-8A07-208983EBE5EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B36F8DED-852F-4138-8A07-208983EBE5EB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CE6CB58C-ABAB-42FB-A942-482AE4C72E87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CE6CB58C-ABAB-42FB-A942-482AE4C72E87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE6CB58C-ABAB-42FB-A942-482AE4C72E87}.Release|Any CPU.ActiveCfg = Release|Any CPU

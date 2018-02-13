@@ -49,9 +49,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IISRequestsLongerThan10Seconds.cs" />
-    <Compile Include="IISRequestsLongerThan30Seconds.cs" />
-    <Compile Include="IISRequestsLongerThan60Seconds.cs" />
+    <Compile Include="IISLongRunningRequestMetricProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

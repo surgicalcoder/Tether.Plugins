@@ -6,43 +6,44 @@ using Tether.Plugins;
 
 namespace Tether.HTTPServiceRequestQueues
 {
-    public class ASPNETGlobalQueues : ICheck
+    public class ASPNETGlobalQueueMetricProvider : IMetricProvider
     {
-        public object DoCheck()
+        private PerformanceCounterCategory v2Category;
+        private PerformanceCounterCategory v4Category;
+        private PerformanceCounter[] v4Counters;
+        private PerformanceCounter[] v2Counters;
+        private PerformanceCounter v2RequestQueued;
+        private PerformanceCounter v4RequestQueued;
+        private PerformanceCounter v4NativeQueued;
+        private PerformanceCounterCategory HttpServiceRequestCategory;
+        public ASPNETGlobalQueueMetricProvider()
         {
-            IDictionary<string, object> values = new Dictionary<string, object>();
+            v2Category = new PerformanceCounterCategory("ASP.NET v2.0.50727");
+            v4Category = new PerformanceCounterCategory("ASP.NET v4.0.30319");
+            
+            HttpServiceRequestCategory = new PerformanceCounterCategory("HTTP Service Request Queues");
 
-            var v2Category = new PerformanceCounterCategory("ASP.NET v2.0.50727");
-            var v2Counters = v2Category.GetCounters();
+            v2Counters = v2Category.GetCounters();    
+            v4Counters = v4Category.GetCounters();
+            
+            v2RequestQueued = v2Counters.FirstOrDefault(e => e.CounterName == "Requests Queued");
+            v4RequestQueued = v4Counters.FirstOrDefault(e => e.CounterName == "Requests Queued");
+            
+            v4NativeQueued = v4Counters.FirstOrDefault(e => e.CounterName == "Requests In Native Queue");
+        }
 
-            var v4Category = new PerformanceCounterCategory("ASP.NET v4.0.30319");
-            var v4Counters = v4Category.GetCounters();
+        public List<Metric> GetMetrics()
+        {
+            var values = new List<Metric>();
 
-            values.Add("v2-Requests-Queued", v2Counters.FirstOrDefault(e => e.CounterName == "Requests Queued").NextValue());
-            values.Add("v4-Requests-Queued", v4Counters.FirstOrDefault(e => e.CounterName == "Requests Queued").NextValue());
-            values.Add("v4-Requests-NativeQueued", v4Counters.FirstOrDefault(e => e.CounterName == "Requests In Native Queue").NextValue());
+            values.Add(new Metric("windows.aspnet.queues", v2RequestQueued.NextValue(), tags:new Dictionary<string, string>{{"queue", "v2"},{"type", "app"}}));
+            values.Add(new Metric("windows.aspnet.queues", v4RequestQueued.NextValue(), tags:new Dictionary<string, string>{{"queue", "v4"},{"type", "app"}}));
+            values.Add(new Metric("windows.aspnet.queues", v4NativeQueued.NextValue(), tags:new Dictionary<string, string>{{"queue", "v4"},{"type", "native"}}));
 
-            DisposeAll(v2Counters);
-            DisposeAll(v4Counters);
+            values.AddRange(from instanceName in HttpServiceRequestCategory.GetInstanceNames() let performanceCounters = HttpServiceRequestCategory.GetCounters(instanceName) select new Metric("windows.aspnet.applications.queues", performanceCounters.FirstOrDefault(f => f.CounterName == "CurrentQueueSize")?.NextValue(), tags: new Dictionary<string, string> {{"queue", "v4"}, {"type", "http.sys"}, {"app", instanceName}}));
 
             return values;
         }
-
-        private void DisposeAll(PerformanceCounter[] counters)
-        {
-            foreach (var counter in counters)
-            {
-                try
-                {
-                    counter.Dispose();
-                }
-                catch (Exception)
-                {
-                    // Yeah, I know. Yeah, I really do know.
-                }
-            }
-        }
-
-        public string Key => "ASPNET-Global-Queues";
     }
+   
 }

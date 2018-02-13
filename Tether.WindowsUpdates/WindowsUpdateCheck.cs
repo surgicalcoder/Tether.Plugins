@@ -7,63 +7,8 @@ using WUApiLib;
 
 namespace Tether.WindowsUpdates
 {
-    public class WindowsUpdateCheck : ILongRunningCheck
+    public class WindowsUpdateCheck : ILongRunningMetricProvider
     {
-
-        public class WindowsUpdateCheckDetails
-        {
-            public WindowsUpdateCheckDetails()
-            {
-                TotalUpdates = 0;
-                CriticalUpdates = 0;
-            }
-
-            public bool IsWindowsUpdateEnabled { get; set; }
-            public int TotalUpdates { get; set; }
-            public int CriticalUpdates { get; set; }
-            public bool RebootRequired { get; set; }
-        }
-
-        public object DoCheck()
-        {
-
-            var session = new UpdateSession();
-            ISearchResult uResult;
-            var updateChecker = new AutomaticUpdatesClass();
-
-            var results = new WindowsUpdateCheckDetails();
-
-            results.IsWindowsUpdateEnabled = updateChecker.ServiceEnabled;
-
-            if (!results.IsWindowsUpdateEnabled)
-            {
-                return results;
-            }
-
-            uResult = CheckForUpdates(session);
-
-            if (uResult != null)
-            {
-                foreach (IUpdate5 uResultUpdate in uResult.Updates)
-                {
-                    if (uResultUpdate.MsrcSeverity.Contains("Critical"))
-                    {
-                        results.CriticalUpdates++;
-                    }
-
-                    results.TotalUpdates++;
-
-                    if (uResultUpdate.RebootRequired)
-                    {
-                        results.RebootRequired = true;
-                    }
-                }
-            }
-            
-
-            return results;
-        }
-
         private static ISearchResult CheckForUpdates(UpdateSession session)
         {
             ISearchResult uResult;
@@ -73,8 +18,57 @@ namespace Tether.WindowsUpdates
             return uResult;
         }
 
-        public string Key => "Windows Update";
+        public List<Metric> GetMetrics()
+        {
+            var session = new UpdateSession();
+            ISearchResult uResult;
+            var updateChecker = new AutomaticUpdatesClass();
 
-        public TimeSpan CacheDuration => TimeSpan.FromDays(1);
+            var results = new List<Metric>();
+
+            results.Add(new Metric("windows.updates.enabled", updateChecker.ServiceEnabled ? 1 : 0));
+
+            if (!updateChecker.ServiceEnabled)
+            {
+                return results;
+            }
+
+            int totalUpdates = 0;
+            int criticalUpdates = 0;
+            int updatesNeedingReboot = 0;
+            
+            uResult = CheckForUpdates(session);
+
+            if (uResult != null)
+            {
+                foreach (IUpdate5 uResultUpdate in uResult.Updates)
+                {
+                    if (uResultUpdate == null)
+                    {
+                        continue;
+                    }
+
+                    if (!String.IsNullOrWhiteSpace(uResultUpdate.MsrcSeverity) && uResultUpdate.MsrcSeverity.Contains("Critical"))
+                    {
+                        criticalUpdates++;
+                    }
+
+                    totalUpdates++;
+
+                    if (uResultUpdate.RebootRequired)
+                    {
+                        updatesNeedingReboot++;
+                    }
+                }
+            }
+            
+            results.Add(new Metric("windows.updates.count", totalUpdates, tags:new Dictionary<string, string>{{"severity","all"}}));
+            results.Add(new Metric("windows.updates.count", criticalUpdates, tags:new Dictionary<string, string>{{"severity","critical"}}));
+            results.Add(new Metric("windows.updates.rebootcount", updatesNeedingReboot, tags:new Dictionary<string, string>{{"severity","all"}}));
+
+            return results;
+        }
+
+        public TimeSpan CacheDuration => TimeSpan.FromHours(12);
     }
 }

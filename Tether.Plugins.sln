@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tether.SQLServer", "Tether.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tether.WindowsUpdates", "Tether.WindowsUpdates\Tether.WindowsUpdates.csproj", "{F883754A-C75C-42B3-92C6-C6EE45435749}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tether.WindowsServiceMonitor", "Tether.WindowsServiceMonitor\Tether.WindowsServiceMonitor.csproj", "{F96D3D59-3E2E-4788-ACB5-69F635D141D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{F883754A-C75C-42B3-92C6-C6EE45435749}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F883754A-C75C-42B3-92C6-C6EE45435749}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F883754A-C75C-42B3-92C6-C6EE45435749}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F96D3D59-3E2E-4788-ACB5-69F635D141D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F96D3D59-3E2E-4788-ACB5-69F635D141D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F96D3D59-3E2E-4788-ACB5-69F635D141D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F96D3D59-3E2E-4788-ACB5-69F635D141D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
